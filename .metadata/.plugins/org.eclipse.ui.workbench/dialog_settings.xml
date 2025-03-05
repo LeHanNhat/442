@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.junit.wizards.NewTestCaseCreationWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jdt.ui.java/org.eclipse.jdt.junit"/>
+		</list>
+		<section name="NewWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="320"/>
+			<item key="DIALOG_Y_ORIGIN" value="194"/>
+			<item key="DIALOG_WIDTH" value="700"/>
+			<item key="DIALOG_HEIGHT" value="505"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.FileSystem"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.m2e"/>
+		</list>
+		<section name="ImportExportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="619"/>
+			<item key="DIALOG_Y_ORIGIN" value="142"/>
+			<item key="DIALOG_WIDTH" value="700"/>
+			<item key="DIALOG_HEIGHT" value="550"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="FileSystemImportWizard">
+		<item key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID" value="false"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="D:\CSE453\lab7\Assignment-Source-Code\Assignment-Source-Code"/>
+			<item value="D:\CSE453\lab7\Selenium-Cucumber-Example\Selenium-Cucumber-Example\Feature"/>
+			<item value="D:\CSE453\lab7\Selenium-Cucumber-Example\Selenium-Cucumber-Example\stepDefinitions"/>
+			<item value="D:\CSE453\lab5\Assignment_Source_Code\Assignment_Source_Code"/>
+			<item value="D:\CSE453\lab4\Assignment4-Source-Code\Assignment4-Source-Code"/>
+			<item value="D:\CSE453\Lab3\Lab3_CSE453_LeHanNhat"/>
+			<item value="D:\CSE453\Lab3\Assignment3-Source-Code\Assignment3-Source-Code"/>
+			<item value="D:\CSE453\Lab2\Code-Assignment2\Code-Assignment2\Q2\b_Money_Test"/>
+			<item value="D:\CSE453\Lab2\Code-Assignment2\Code-Assignment2\Q2\b_Money"/>
+			<item value="D:\CSE453\Lab2\Code-Assignment2\Code-Assignment2\Q1"/>
+			<item value="D:\CSE453\Lab Practice 1\Lab Practice 1\Quadrilateral"/>
+			<item value="D:\CSE453\Lab Practice 1\Lab Practice 1\Fibonaci"/>
+			<item value="D:\CSE453\Lab Practice 1\Lab Practice 1\Triangle"/>
+			<item value="D:\CSE453\Lab Practice 1\Lab Practice 1\Romanto"/>
+			<item value="D:\CSE453\Lab Practice 1\Lab Practice 1\CircleRadius"/>
+			<item value="D:\CSE453\ContactManagerApplication\ContactManagerApplication"/>
+		</list>
+		<section name="FileSystemImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="619"/>
+			<item key="DIALOG_Y_ORIGIN" value="142"/>
+			<item key="DIALOG_WIDTH" value="805"/>
+			<item key="DIALOG_HEIGHT" value="703"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="InstallationDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="86"/>
+		<item key="DIALOG_Y_ORIGIN" value="0"/>
+		<item key="DIALOG_WIDTH" value="928"/>
+		<item key="DIALOG_HEIGHT" value="976"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

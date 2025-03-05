@@ -1,0 +1,125 @@
+package features;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.platform.suite.api.Select;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.locators.RelativeLocator;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class WebFormStep {
+private WebDriver driver;
+    
+    @Before
+    public void setup() {
+    	WebDriverManager.chromedriver().clearDriverCache().setup();
+    	driver = new ChromeDriver();
+        
+        driver.manage().window().maximize();
+    }
+    
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+    
+    @Given("I navigate to the web form page")
+    public void i_navigate_to_the_web_form_page() {
+        driver.get("https://www.selenium.dev/selenium/web/web-form.html");
+    }
+    
+    @When("I fill up the Text Input with {string}")
+    public void i_fill_up_the_text_input_with(String text) {
+        driver.findElement(By.id("my-text-id")).sendKeys(text);
+    }
+    
+    @When("I fill up the Password with {string}")
+    public void i_fill_up_the_password_with(String password) {
+        driver.findElement(By.name("my-password")).sendKeys(password);
+    }
+    
+    @When("I fill up the Text Area with {string}")
+    public void i_fill_up_the_text_area_with(String textAreaContent) {
+        driver.findElement(By.name("my-textarea")).sendKeys(textAreaContent);
+    }
+    
+    @When("I click the {string} link")
+    public void i_click_the_link(String linkText) {
+        driver.findElement(By.linkText(linkText)).click();
+    }
+    
+    @Then("I verify the page title is {string}")
+    public void i_verify_the_page_title_is(String expectedTitle) {
+        String actualTitle = driver.getTitle();
+        assertEquals(expectedTitle, actualTitle);
+    }
+    
+    @When("I navigate back to the web form page")
+    public void i_navigate_back_to_the_web_form_page() {
+        driver.navigate().back();
+    }
+    
+    @When("I select {string} from the dropdown")
+    public void i_select_from_the_dropdown(String option) {
+    	Select dropdown = new Select(driver.findElement(By.name("my-select")));
+        dropdown.selectByVisibleText("Two");
+    }
+    @Then("I verify that the Checked Checkbox is selected")
+    public void i_verify_that_the_checked_checkbox_is_selected() {
+        WebElement checkedCheckbox = driver.findElement(By.id("my-check-1"));
+        assertTrue(checkedCheckbox.isSelected());
+    }
+    
+    @Then("I verify that the Checked Radio Button is selected")
+    public void i_verify_that_the_checked_radio_button_is_selected() {
+        WebElement checkedRadio = driver.findElement(By.id("my-radio-1"));
+        assertTrue(checkedRadio.isSelected());
+    }
+    
+    @When("I find the Default Checkbox using Relative Locator")
+    public void i_find_the_default_checkbox_using_relative_locator() {
+        // Using label as reference element
+        WebElement label = driver.findElement(By.xpath("//label[text()='Default Checkbox']"));
+        // Finding checkbox that is to the right of the label
+        WebElement defaultCheckbox = driver.findElement(RelativeLocator.with(By.tagName("input")).toRightOf(label));
+        defaultCheckbox.click();
+    }
+    
+    @When("I change the color in color picker to {string}")
+    public void i_change_the_color_in_color_picker_to(String color) {
+        WebElement colorPicker = driver.findElement(By.name("my-colors"));
+        // Set color value using JavaScript executor
+        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript(
+                "arguments[0].value = arguments[1]", colorPicker, color);
+    }
+    
+    @When("I set the date {string} in the date picker")
+    public void i_set_the_date_in_the_date_picker(String date) {
+        WebElement datePicker = driver.findElement(By.name("my-date"));
+        datePicker.clear();
+        datePicker.sendKeys(date);
+    }
+    
+    @When("I click the Submit button")
+    public void i_click_the_submit_button() {
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+    }
+    
+    @Then("I verify the message received is {string}")
+    public void i_verify_the_message_received_is(String expectedMessage) {
+        WebElement message = driver.findElement(By.id("message"));
+        assertEquals(expectedMessage, message.getText());
+    }
+}

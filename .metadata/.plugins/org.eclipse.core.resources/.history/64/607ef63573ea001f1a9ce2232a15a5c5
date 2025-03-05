@@ -1,0 +1,170 @@
+package Lab5;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class CommissioningProblemTest {
+
+	private static final double DELTA = 0.001;
+
+    @Test
+    public void testValidInputs() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(35, 40, 45);
+        double sales = commission.calSale();
+        assertEquals(640.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testLocksMin() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(1, 40, 45);
+        double sales = commission.calSale();
+        assertEquals(334.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testLocksMax() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(70, 40, 45);
+        double sales = commission.calSale();
+        assertEquals(955.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testStocksMin() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(35, 1, 45);
+        double sales = commission.calSale();
+        assertEquals(307.5, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testStocksMax() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(35, 80, 45);
+        double sales = commission.calSale();
+        assertEquals(857.5, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testBarrelsMin() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(35, 40, 1);
+        double sales = commission.calSale();
+        assertEquals(527.5, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testBarrelsMax() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(35, 40, 90);
+        double sales = commission.calSale();
+        assertEquals(752.5, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testCommissionBelow1000() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(10, 10, 10);
+        double sales = commission.calSale();
+        assertEquals(100.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testCommissionAt1000() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(10, 10, 10);
+        double sales = commission.calSale();
+        assertEquals(100.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testCommissionAt1800() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(20, 20, 20);
+        double sales = commission.calSale();
+        assertEquals(220.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testCommissionAbove1800() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(35, 40, 45);
+        double sales = commission.calSale();
+        assertEquals(640.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testInvalidLocksBelowMin() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(0, 40, 45);
+        double sales = commission.calSale();
+        assertEquals(0.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testInvalidLocksAboveMax() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(71, 40, 45);
+        double sales = commission.calSale();
+        assertEquals(0.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testInvalidStocksBelowMin() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(35, 0, 45);
+        double sales = commission.calSale();
+        assertEquals(0.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testInvalidStocksAboveMax() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(35, 81, 45);
+        double sales = commission.calSale();
+        assertEquals(0.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testInvalidBarrelsBelowMin() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(35, 40, 0);
+        double sales = commission.calSale();
+        assertEquals(0.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testInvalidBarrelsAboveMax() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(35, 40, 91);
+        double sales = commission.calSale();
+        assertEquals(0.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testAllMin() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(1, 1, 1);
+        double sales = commission.calSale();
+        assertEquals(10.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testAllMax() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(70, 80, 90);
+        double sales = commission.calSale();
+        assertEquals(1425.0, commission.calCommission(sales), DELTA);
+    }
+
+    @Test
+    public void testAllInvalid() {
+        CommissioningProblem commission = new CommissioningProblem();
+        commission.setInput(0, 0, 0);
+        double sales = commission.calSale();
+        assertEquals(0.0, commission.calCommission(sales), DELTA);
+    }
+}

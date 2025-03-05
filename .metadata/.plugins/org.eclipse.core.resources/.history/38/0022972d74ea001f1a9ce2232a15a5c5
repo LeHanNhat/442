@@ -1,0 +1,56 @@
+package Lab5;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class Client_ProductTest {
+
+	   @Test
+	    public void testAssignProduct() {
+	        Client_Product cp = new Client_Product();
+	        
+	        // Test Case 1: Female, City Dweller, Age < 35
+	        cp.setInput("Female", "Yes", 34);
+	        assertEquals("W X and Y", cp.assignProduct());
+
+	        // Test Case 2: Female, City Dweller, Age between 35-65
+	        cp.setInput("Female", "Yes", 40);
+	        assertEquals("X and Y", cp.assignProduct());
+
+	        // Test Case 3: Female, City Dweller, Age > 65
+	        cp.setInput("Female", "Yes", 70);
+	        assertEquals("Only Y", cp.assignProduct());
+
+	        // Test Case 4: Female, Non-Dweller, Age < 35
+	        cp.setInput("Female", "No", 30);
+	        assertEquals("W and X", cp.assignProduct());
+
+	        // Test Case 5: Female, Non-Dweller, Age between 35-65
+	        cp.setInput("Female", "No", 50);
+	        assertEquals("Only X", cp.assignProduct());
+
+	        // Test Case 6: Male, City Dweller, Any Age
+	        cp.setInput("Male", "Yes", 25);
+	        assertEquals("Only X", cp.assignProduct());
+
+	        cp.setInput("Male", "Yes", 45);
+	        assertEquals("Only X", cp.assignProduct());
+
+	        cp.setInput("Male", "Yes", 70);
+	        assertEquals("Only X", cp.assignProduct());
+
+	        // Test Case 7: Male, Non-Dweller, Age < 35
+	        cp.setInput("Male", "No", 30);
+	        assertEquals("Only X", cp.assignProduct());
+
+	        // Test Case 8: Male, Non-Dweller, Age between 35-65
+	        cp.setInput("Male", "No", 50);
+	        assertEquals("W and Z", cp.assignProduct());
+
+	        // Test Case 9: Male, Non-Dweller, Age > 65
+	        cp.setInput("Male", "No", 70);
+	        assertEquals("Only X", cp.assignProduct());
+	    }
+
+}

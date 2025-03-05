@@ -1,0 +1,50 @@
+package Lab5;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class Client_ProductTest {
+
+	   @Test
+	    public void testAssignProduct() {
+	        Client_Product cp = new Client_Product();
+	        
+	      
+	        cp.setInput("Female", "Yes", 34);
+	        assertEquals("W X and Y", cp.assignProduct());
+
+	        
+	        cp.setInput("Female", "Yes", 40);
+	        assertEquals("X and Y", cp.assignProduct());
+
+	      
+	        cp.setInput("Female", "Yes", 70);
+	        assertEquals("Only Y", cp.assignProduct());
+
+	        cp.setInput("Female", "No", 30);
+	        assertEquals("W and X", cp.assignProduct());
+
+	        cp.setInput("Female", "No", 50);
+	        assertEquals("Only X", cp.assignProduct());
+
+	        cp.setInput("Male", "Yes", 25);
+	        assertEquals("Only X", cp.assignProduct());
+
+	        cp.setInput("Male", "Yes", 45);
+	        assertEquals("Only X", cp.assignProduct());
+
+	        cp.setInput("Male", "Yes", 70);
+	        assertEquals("Only X", cp.assignProduct());
+
+	        cp.setInput("Male", "No", 30);
+	        assertEquals("Only X", cp.assignProduct());
+
+	        cp.setInput("Male", "No", 50);
+	        assertEquals("W and Z", cp.assignProduct());
+
+	        cp.setInput("Male", "No", 70);
+	        assertEquals("Only X", cp.assignProduct());
+	    }
+
+}

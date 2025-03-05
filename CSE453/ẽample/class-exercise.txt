@@ -1,0 +1,6 @@
+1. Using Selenium tool automate the following tasks in Chrome Browser. Submit the code in Moodle. 25 Points
+
+
+1.	Go to https://www.facebook.com/signup
+2.	Create an Account.
+3.	Test the next web page title.

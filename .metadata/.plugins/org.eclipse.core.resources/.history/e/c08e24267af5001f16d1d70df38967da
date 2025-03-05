@@ -1,0 +1,21 @@
+Feature: Web Form Testing
+  As a user
+  I want to test various elements of a web form
+  So that I can verify the form functionality
+
+  Scenario: Testing web form elements and navigation
+    Given I navigate to the web form page
+    When I fill up the Text Input with "Sample Text"
+    And I fill up the Password with "SecurePassword123"
+    And I fill up the Text Area with "This is a sample text area content"
+    And I click the "Return to index" link
+    Then I verify the page title is "<Title>"
+    When I navigate back to the web form page
+    And I select "Two" from the dropdown
+    Then I verify that the Checked Checkbox is selected
+    And I verify that the Checked Radio Button is selected
+    When I find the Default Checkbox using Relative Locator
+    And I change the color in color picker to "#FF0000"
+    And I set the date "2025-02-28" in the date picker
+    And I click the Submit button
+    Then I verify the message received is "Received!"

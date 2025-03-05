@@ -1,0 +1,83 @@
+package lab7;
+
+/**
+ * Class to classify a triangle based on the lengths of its sides.
+ */
+public class TriangleClassify {
+    // Constants for triangle types
+    private static final String EQUILATERAL = "EQUILATERAL";
+    private static final String ISOSCELES = "ISOSCELES";
+    private static final String SCALENE = "SCALENE";
+    private static final String NOT_A_TRIANGLE = "IsNotTriangle";
+    private static final String OUT_OF_RANGE = "OUT_OF_RANGE";
+    
+    // Maximum valid side length
+    private static final int MAX_SIDE_LENGTH = 200;
+    
+    private int side1, side2, side3;
+    private String triangleType;
+    
+    /**
+     * Set the three sides of the triangle.
+     * 
+     * @param s1 length of first side
+     * @param s2 length of second side
+     * @param s3 length of third side
+     */
+    public void setSide(int s1, int s2, int s3) {
+        this.side1 = s1;
+        this.side2 = s2;
+        this.side3 = s3;
+    }
+
+    public int getSide1() {
+        return side1;
+    }
+
+    public int getSide2() {
+        return side2;
+    }
+
+    public int getSide3() {
+        return side3;
+    }
+    
+    /**
+     * Check if the three sides can form a valid triangle.
+     * 
+     * @return true if a valid triangle can be formed, false otherwise
+     */
+    public boolean isTriangle() {
+        // Fixed the bug in the triangle inequality check
+        return (side1 < side2 + side3) && (side2 < side1 + side3) && (side3 < side1 + side2);//fix here
+    }
+    
+    /**
+     * Classify the triangle based on the lengths of its sides.
+     * 
+     * @return the classification of the triangle
+     */
+    public String classify() {
+        boolean c1, c2, c3;
+
+        c1 = (1 <= side1) && (side1 <= MAX_SIDE_LENGTH);
+        c2 = (1 <= side2) && (side2 <= MAX_SIDE_LENGTH);
+        c3 = (1 <= side3) && (side3 <= MAX_SIDE_LENGTH);
+
+        if (!c1 || !c2 || !c3) {
+            triangleType = OUT_OF_RANGE;
+        } else if (isTriangle()) {
+            if ((side1 == side2) && (side2 == side3)) {
+                triangleType = EQUILATERAL;
+            } else if ((side1 != side2) && (side1 != side3) && (side2 != side3)) {
+                triangleType = SCALENE;
+            } else {
+                triangleType = ISOSCELES;
+            }
+        } else {
+            triangleType = NOT_A_TRIANGLE;
+        }
+        
+        return triangleType;
+    }
+}

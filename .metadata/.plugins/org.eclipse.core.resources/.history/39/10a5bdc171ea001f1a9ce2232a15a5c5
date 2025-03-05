@@ -1,0 +1,14 @@
+package Lab5;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TriangleClassifyTestTest {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}
